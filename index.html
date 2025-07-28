@@ -170,24 +170,36 @@
   </div>
 </div>
 
+<div class="bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto mt-6">
+  <h2 class="text-2xl font-bold mb-4">📝 This Week's Devotion</h2>
 
- <textarea id="devotion-verse-input" class="w-full p-2 border border-gray-300 rounded mb-3"
-    placeholder="Enter Bible verse here..."></textarea>
-  <button onclick="submitDevotion()" class="w-full py-2 px-4 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300">
-<div id="uploadSection" class="hidden mt-4 p-4 bg-gray-100 rounded-lg shadow">
-  <label class="block mb-2 font-medium text-gray-700">Choose Devotion File (PDF, DOCX)</label>
+  <!-- Devotion Textarea -->
+  <label class="block mb-2 text-gray-700">Write Devotion (Optional):</label>
+  <textarea
+    id="devotionText"
+    class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+    rows="5"
+    placeholder="Write this week's devotion here..."
+  ></textarea>
+
+  <!-- Devotion File Upload -->
+  <label class="block mb-2 text-gray-700">Or Upload a File:</label>
   <input
     type="file"
     id="devotionFile"
-    accept=".pdf,.doc,.docx"
-    class="w-full p-2 border border-gray-300 rounded mb-3"
+    accept=".txt,.doc,.docx,.pdf"
+    class="mb-4"
   />
-<button
-  onclick="uploadDevotion()"
-  class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
->
-  📤 Upload This Week's Devotion
-</button>
+
+  <!-- Upload Button -->
+  <button
+    onclick="uploadDevotion()"
+    class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+  >
+    📤 Upload This Week's Devotion
+  </button>
+</div>
+
 
 
   </div>
