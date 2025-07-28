@@ -171,16 +171,24 @@
 </div>
 
 
-  <textarea id="devotion-verse-input" class="w-full p-2 border border-gray-300 rounded mb-3"
+ <textarea id="devotion-verse-input" class="w-full p-2 border border-gray-300 rounded mb-3"
     placeholder="Enter Bible verse here..."></textarea>
- 
-  <button
-    onclick="uploadDevotion()"
-    class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
-  >
-    Upload This Week's Devotion
-  </button>
-</div>
+  <button onclick="submitDevotion()" class="w-full py-2 px-4 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300">
+<div id="uploadSection" class="hidden mt-4 p-4 bg-gray-100 rounded-lg shadow">
+  <label class="block mb-2 font-medium text-gray-700">Choose Devotion File (PDF, DOCX)</label>
+  <input
+    type="file"
+    id="devotionFile"
+    accept=".pdf,.doc,.docx"
+    class="w-full p-2 border border-gray-300 rounded mb-3"
+  />
+<button
+  onclick="uploadDevotion()"
+  class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+>
+  📤 Upload This Week's Devotion
+</button>
+
 
   </div>
 
@@ -189,6 +197,54 @@
   </footer>
 
  <script>
+  function uploadDevotion() {
+    document.getElementById('uploadSection').classList.remove('hidden');
+  }
+
+  function submitDevotion() {
+    const fileInput = document.getElementById('devotionFile');
+    const statusMessage = document.getElementById('statusMessage');
+
+    if (fileInput.files.length === 0) {
+      statusMessage.innerText = "⚠️ Please select a file before submitting.";
+      statusMessage.className = "text-red-600 mt-4 font-semibold";
+      return;
+    }
+
+    statusMessage.innerText = "⏳ Uploading...";
+    statusMessage.className = "text-blue-600 mt-4 font-semibold";
+
+    setTimeout(() => {
+      statusMessage.innerText = "✅ Devotion uploaded successfully!";
+      statusMessage.className = "text-green-600 mt-4 font-semibold";
+      fileInput.value = '';
+    }, 2000);
+  }
+  function uploadDevotion() {
+    // Show upload form
+    document.getElementById('uploadSection').classList.remove('hidden');
+  }
+
+  function submitDevotion() {
+    const fileInput = document.getElementById('devotionFile');
+    const statusMessage = document.getElementById('statusMessage');
+
+    if (fileInput.files.length === 0) {
+      statusMessage.innerText = "⚠️ Please select a file before submitting.";
+      statusMessage.className = "text-red-600 mt-4 font-semibold";
+      return;
+    }
+
+    // Simulate upload
+    statusMessage.innerText = "⏳ Uploading...";
+    statusMessage.className = "text-blue-600 mt-4 font-semibold";
+
+    setTimeout(() => {
+      statusMessage.innerText = "✅ Devotion uploaded successfully!";
+      statusMessage.className = "text-green-600 mt-4 font-semibold";
+      fileInput.value = ''; // Clear file input
+    }, 2000);
+  }
   function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
   }
